@@ -7,8 +7,8 @@ class TestGuest < MiniTest::Test
     @guest = Guest.new ("Kylie")
   end
 
-  def test_get_guest_name
-    assert_equal("Kylie", @guest.get_guest_name)
+  def test_can_get_guest_name
+    assert_equal("Kylie", @guest.name())
   end
 
 end
