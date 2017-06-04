@@ -1,5 +1,5 @@
 class Room
-  attr_reader :number, :guests, :songs, :capacity
+  attr_reader :number, :capacity, :guests, :songs
 
   def initialize(number, capacity)
     @number = number
@@ -9,10 +9,16 @@ class Room
   end
 
   def guest_count()
-    return @guests.length
+    return @guests.count
   end
 
+  # def check_in_guest(guest)
+  #   @guests << guest
+  # end
+
   def check_in_guest(guest)
+    room_space = (@capacity) - (@guests.count)
+    return "Cannot add guest, room full" if room_space <= 0
     @guests << guest
   end
 
@@ -30,12 +36,6 @@ class Room
 
   def remove_song(song)
     @songs.delete(song)
-  end
-
-  def check_if_full()
-
-
-    # return "Cannot add guest, room is full"
   end
 
 end
